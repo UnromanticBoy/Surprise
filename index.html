@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe4ef">
+<title>Surprise Birthday 💗</title>
+<style>
+:root{--pink:#ff78ad;--deep:#d94d89;--cream:#fff8fb;--lav:#e9dcff;--ink:#7c4166}
+*{box-sizing:border-box}
+html{scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}body{margin:0;min-height:100svh;overflow-x:hidden;color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif;background:radial-gradient(ellipse at 15% 12%,#fff 0 3%,transparent 26%),radial-gradient(ellipse at 85% 25%,#ffe5f0 0 8%,transparent 34%),linear-gradient(145deg,#fff6fb,#f7edff 55%,#ffeaf2);text-align:center}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(#fff 1.4px,transparent 1.5px);background-size:32px 32px;mask-image:linear-gradient(transparent,#000)}
+#sky,.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.floaty{position:absolute;bottom:-50px;animation:floatUp linear infinite;opacity:.7;filter:drop-shadow(0 3px 4px #ffc6dd)}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+main{position:relative;z-index:1;width:100%;max-width:850px;margin:auto;padding:clamp(12px,3vw,30px) clamp(10px,3vw,16px) 32px}
+h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;margin:10px 0;color:#d84f91;text-shadow:0 3px 0 #fff,0 8px 22px #f8bdd7}
+.sub{font-size:clamp(1rem,2.7vw,1.2rem);line-height:1.6;max-width:610px;margin:12px auto 24px}
+.card{background:#ffffffb8;border:1px solid #fff;box-shadow:0 18px 55px #d7a4c333,inset 0 1px 0 #fff;border-radius:30px;padding:clamp(18px,4vw,32px);backdrop-filter:blur(10px);margin:18px auto}
+.scene{display:none;animation:popIn .75s cubic-bezier(.2,1.3,.4,1) both}.scene.active{display:block}
+@keyframes popIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:13px 22px;color:white;background:linear-gradient(135deg,#ff8fbd,#e75b9d);box-shadow:0 7px 0 #cf4a8a,0 12px 25px #ed8fbd66;cursor:pointer;transition:transform .18s,filter .18s;margin:7px}
+button:hover{filter:saturate(1.15);transform:translateY(-2px)}button:active{transform:translateY(4px);box-shadow:0 3px 0 #cf4a8a}
+button.secondary{background:linear-gradient(135deg,#c6a9ff,#9a7ce6);box-shadow:0 7px 0 #8668cf,0 12px 25px #b9a2ee66}
+button.soft{color:#b94d86;background:#fff0f7;box-shadow:0 5px 0 #f4c3da}
+.heart-stage{position:relative;height:270px;max-width:650px;margin:10px auto 0;border-radius:25px;background:linear-gradient(135deg,#fff5fa,#f5efff);overflow:hidden;border:1px solid #fff;touch-action:pan-y}
+.heart{position:absolute;left:60%;top:42%;transform:translate(-50%,-50%);font-size:clamp(100px,19vw,150px);line-height:1;filter:drop-shadow(0 10px 12px #fa78b177);animation:beat 1.05s infinite;z-index:2}
+@keyframes beat{0%,100%{transform:translate(-50%,-50%) scale(1)}14%{transform:translate(-50%,-50%) scale(1.13)}28%{transform:translate(-50%,-50%) scale(1)}42%{transform:translate(-50%,-50%) scale(1.09)}58%{transform:translate(-50%,-50%) scale(1)}}
+.heart-glow{position:absolute;left:60%;top:43%;width:190px;height:190px;border-radius:50%;background:#ff9dc8;filter:blur(38px);opacity:.42}
+.arrow{position:absolute;left:7%;top:73%;width:145px;height:36px;transform:rotate(-18deg);cursor:grab;touch-action:none;user-select:none;z-index:4;filter:drop-shadow(0 4px 4px #aa77aa);transition:filter .2s}.arrow svg{width:100%;height:100%;overflow:visible}
+.arrow:active{cursor:grabbing;filter:drop-shadow(0 0 9px #ff70b3)}
+.bow-art{position:absolute;left:5%;top:49%;width:78px;height:145px;transform:rotate(-19deg);filter:drop-shadow(0 4px 4px #e4a1c5);z-index:3;overflow:visible}
+.instruction{font-weight:700;color:#aa6290;margin:12px 0 0}
+.sparkle{position:absolute;animation:twinkle 1.5s ease-in-out infinite alternate}
+@keyframes twinkle{from{transform:scale(.65) rotate(0);opacity:.35}to{transform:scale(1.3) rotate(30deg);opacity:1}}
+.message{font-size:clamp(1.1rem,3vw,1.35rem);line-height:1.85;max-width:620px;margin:auto;white-space:pre-line}
+.signature{font-family:Georgia,serif;font-style:italic;font-size:1.3rem;color:#d94f91;margin-top:20px}
+.cake-wrap{position:relative;width:min(330px,85vw);height:300px;margin:12px auto 20px}
+.cake{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:100%;height:200px}
+.tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:13px 13px 20px 20px;border:3px solid #fff5fb;box-shadow:inset 0 -12px 0 #e9a8d1,0 8px 15px #bd83aa33;background:linear-gradient(90deg,#f4b9e1,#fff0fb 48%,#f5c1e5)}
+.tier:before{content:"";position:absolute;left:-2px;right:-2px;top:-9px;height:21px;border-radius:50%;background:#fff7fc;border:2px solid #f6d7eb}
+.tier:after{content:"✦  ♡  ✦  ♡  ✦";position:absolute;inset:28px 0 auto;color:#d96eaa;font-size:15px;letter-spacing:4px}
+.t1{width:95%;height:76px;bottom:0}.t2{width:72%;height:67px;bottom:69px;background:linear-gradient(90deg,#c8c0ff,#f7efff 48%,#d6c7ff);box-shadow:inset 0 -11px 0 #b4a3ef,0 8px 15px #bd83aa33}.t2:after{color:#9b85db}.t3{width:47%;height:58px;bottom:128px;background:linear-gradient(90deg,#f7b6d7,#fff0f7 48%,#f8c3dd);box-shadow:inset 0 -10px 0 #e995bf,0 8px 15px #bd83aa33}
+.candles{position:absolute;bottom:181px;left:50%;transform:translateX(-50%);display:flex;gap:19px;z-index:2}
+.candle{height:48px;width:10px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff 0 6px,#f39ac6 6px 12px);position:relative}
+.flame{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:15px;height:22px;background:radial-gradient(ellipse at 50% 65%,#fff8ae 0 20%,#ffb23e 45%,#ff6e8b 75%);border-radius:70% 30% 60% 40%;animation:flame 0.22s infinite alternate;filter:drop-shadow(0 0 8px #ffb34c)}
+@keyframes flame{to{transform:translateX(-50%) rotate(7deg) scale(.9)}}
+.candle.off .flame{display:none}
+.smoke{position:absolute;top:-27px;left:0;font-size:20px;animation:smoke 1s forwards}
+@keyframes smoke{to{transform:translate(-10px,-35px);opacity:0}}
+.cake-sprinkles{position:absolute;inset:0;pointer-events:none}
+.blow-count{font-weight:800;color:#b96a99;margin:5px}
+.knife{width:125px;height:48px;position:absolute;z-index:5;right:-8px;top:30px;transform:rotate(-28deg);cursor:grab;touch-action:none;user-select:none;filter:drop-shadow(0 5px 4px #a78ab5)}.knife svg{width:100%;height:100%;overflow:visible}
+.cake-wrap.cut .tier{animation:cutCake .8s ease forwards}.cake-slice{position:absolute;z-index:4;left:54%;top:95px;width:74px;height:90px;opacity:0;transform:translate(0,0) rotate(0deg);filter:drop-shadow(0 7px 8px #b981aa66)}.slice-layer{position:absolute;left:0;width:72px;height:28px;border:2px solid #fff4fb;border-radius:7px 7px 12px 12px}.slice-bottom{bottom:0;background:linear-gradient(90deg,#efb0d8,#fff0fb,#e9a0cf)}.slice-middle{bottom:25px;background:linear-gradient(90deg,#c9bcff,#fff,#c2b3ff)}.slice-top{bottom:50px;background:linear-gradient(90deg,#f4b3d8,#fff4fb,#eea1cb)}.cake-slice span{position:absolute;top:3px;left:25px;color:#fff;font-size:17px}.cake-wrap.cut .cake-slice{opacity:1;animation:sliceMove 1.1s cubic-bezier(.2,.7,.2,1) forwards}@keyframes sliceMove{0%{transform:translate(0,0) rotate(0);opacity:0}25%{opacity:1}50%{transform:translate(15px,15px) rotate(12deg)}100%{transform:translate(70px,65px) rotate(25deg);opacity:1}}
+@keyframes cutCake{to{filter:brightness(1.12);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);transform:translateX(-50%) rotate(-2deg)}}
+.love-balloon{width:clamp(190px,48vw,280px);height:clamp(175px,44vw,260px);display:block;margin:15px auto;position:relative;filter:drop-shadow(0 8px 18px #e77bb2);cursor:pointer;animation:floatLove 3s ease-in-out infinite;transition:filter .3s}.mosaic-heart{position:absolute;transform:translate(-50%,-50%);font-size:12px;line-height:1;color:var(--heart-color);text-shadow:0 0 4px #fff;transition:color .7s}
+@keyframes floatLove{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.love-balloon:hover{filter:hue-rotate(60deg) drop-shadow(0 8px 25px #e77bb2)}
+.tiny-love{position:fixed;pointer-events:none;font-size:18px;z-index:5;animation:rise 3.8s ease-out forwards}
+@keyframes rise{to{transform:translate(var(--dx),-110vh) rotate(360deg) scale(.3);opacity:0}}
+.final-note{background:linear-gradient(135deg,#fff,#fff0f8);border-radius:24px;padding:22px;border:1px solid white;box-shadow:0 12px 30px #dca5c633;line-height:1.9;white-space:pre-line}
+.hidden{display:none!important}
+.gesture-next{display:block;max-width:580px;margin:18px auto 0;padding:12px 16px;border-radius:18px;color:#a85283;background:#fff0f7b8;font-weight:750;cursor:pointer;user-select:none}
+#candles{cursor:pointer;touch-action:manipulation}
+.cake-cut-mark{position:absolute;inset:0;width:100%;height:100%;z-index:4;overflow:visible;pointer-events:none}
+.cake-cut-mark path{fill:none;stroke:#a75c88;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:5 3;filter:drop-shadow(0 1px 1px #fff)}
+.cake-wrap.cut .t1{clip-path:polygon(0 0,100% 0,100% 65%,78% 100%,0 100%)}
+.cake-wrap.cut .t2{clip-path:polygon(0 0,100% 0,100% 68%,78% 100%,0 100%)}
+.cake-wrap.cut .t3{clip-path:polygon(0 0,100% 0,100% 68%,78% 100%,0 100%)}
+.cake-slice{clip-path:polygon(0 0,100% 0,100% 68%,72% 100%,0 100%)}
+@media(max-width:600px){main{padding:10px 9px 24px}h1{font-size:clamp(1.8rem,8vw,2.6rem)}.card{padding:clamp(13px,4vw,22px);margin:12px auto;border-radius:22px}.sub{margin:9px auto 16px;line-height:1.45}.heart-stage{height:clamp(220px,60vw,270px)}.cake-wrap{width:min(310px,88vw);height:270px;transform:scale(.96);transform-origin:top center;margin-bottom:0}.cake{height:190px}.t1{height:70px}.t2{height:62px;bottom:63px}.t3{height:53px;bottom:116px}.candles{bottom:164px;gap:16px}.candle{height:43px}.knife{width:105px;height:42px;right:-3px;top:18px}.message{line-height:1.65}.love-balloon{width:clamp(185px,58vw,260px);height:clamp(170px,53vw,240px)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+footer{font-size:.85rem;opacity:.65;margin-top:25px}
+@media(max-width:480px){.heart-stage{height:250px}.heart{left:66%}.heart-glow{left:66%}.arrow{left:4%;width:125px}.bow-art{left:1%;width:68px}.card{border-radius:24px}}
+p.sub { position: relative; height: 50px; /* Adjusted slightly to ensure no text wraps or cuts off */ overflow: hidden;text-align: center;}
+/* Hide all the <br> break elements since positioning handles the layout */
+p.sub br.Move {display: none;}
+/* Base styles for all spans */
+p.sub span {position: absolute; width: 100%; left: 0; top: 0; opacity: 0;}
+/* 
+  Sequential Delays: Each line waits 4 seconds longer than the previous one.
+  Total timeline is expanded to 16s.
+*/
+p.sub span:nth-of-type(1) { animation: moveAndFade 16s ease-in-out 0s infinite; }
+p.sub span:nth-of-type(2) { animation: moveAndFade 16s ease-in-out 4s infinite; }
+p.sub span:nth-of-type(3) { animation: moveAndFade 16s ease-in-out 8s infinite; }
+p.sub span:nth-of-type(4) { animation: moveAndFade 16s ease-in-out 12s infinite; }
+
+/* 
+  Calculated Keyframes for a 4-line loop (16 seconds total):
+  25% of the timeline is exactly 4 seconds.
+*/
+@keyframes moveAndFade {  0% {opacity: 0;transform: translateY(100%); }
+  /* Slides up quickly and stabilizes by 3.5% (~0.5 seconds) */
+  3.5%, 20% {opacity: 1;transform: translateY(0);}
+  /* Exits up and disappears by 25% (4 seconds mark) */
+  23.5%, 100% {opacity: 0;transform: translateY(-100%);}}
+</style>
+</head>
+<body>
+<div id="sky"></div><div class="confetti" id="confetti"></div>
+<main>
+  <div style="font-size:2rem;letter-spacing:8px">🎀 ✨ 🦋 ✨ 🎀</div>
+  <h1>Birthday Magic - Chinna Muthi</h1>
+  <p class="sub">
+  <span>Edi Artificial Iye Undachu | But Na Prema Swachamainadi Darling"💗"</span>
+  <br class="Move">
+  <span>Na Premanu Chapala Paristhe ee Boomi Saripodhu "💓"</span>
+  <br class="Move">
+  <span>WaterLo Kalipithe Samudralu InkiPothaye "💓"</span>
+  <br class="Move">
+  <span>Vishwamantha Unna Prema | Iruku Yedhalo Dachukunna "💓"</span>
+</p>
+
+
+  <section class="card scene active" id="scene1">
+    <h2>Ready for your surprise, Birthday Girl 🐱</h2>
+    <p class="sub">Take a deep breath(🩺Gali Pilchuko), make a wish in your heart.</p>
+    <div class="heart-stage" id="heartStage" aria-label="Drag the arrow toward the heart">
+      <span class="sparkle" style="left:15%;top:15%;font-size:22px">✦</span><span class="sparkle" style="left:42%;top:20%;font-size:16px;animation-delay:.4s">✧</span><span class="sparkle" style="right:9%;top:17%;font-size:24px;animation-delay:.8s">✦</span><span class="sparkle" style="left:40%;bottom:12%;font-size:20px;animation-delay:.2s">♡</span>
+      <div class="heart-glow"></div><div class="heart" id="targetHeart">💗</div>
+      <svg class="bow-art" viewBox="0 0 100 180" aria-hidden="true"><defs><linearGradient id="wood" x1="0" x2="1"><stop stop-color="#8a4b54"/><stop offset=".45" stop-color="#e8a0ae"/><stop offset="1" stop-color="#7e3c54"/></linearGradient></defs><path d="M72 8 Q-2 90 72 172" fill="none" stroke="url(#wood)" stroke-width="9" stroke-linecap="round"/><path d="M72 8 L72 172" stroke="#fff8ff" stroke-width="1.8" opacity=".9"/><path d="M72 8 Q37 90 72 172" fill="none" stroke="#c67d9a" stroke-width="1.4"/></svg><div class="arrow" id="arrow" aria-label="Cupid arrow"><svg viewBox="0 0 190 34" aria-hidden="true"><defs><linearGradient id="arrowMetal"><stop stop-color="#9e6b83"/><stop offset=".5" stop-color="#fff0fa"/><stop offset="1" stop-color="#b65e89"/></linearGradient></defs><path d="M12 17 H171" stroke="url(#arrowMetal)" stroke-width="4" stroke-linecap="round"/><path d="M171 17 L151 5 L155 17 L151 29 Z" fill="#c65b89" stroke="#8c416c" stroke-width="1.5"/><path d="M18 17 L4 5 L8 17 L4 29 Z" fill="#f39bc0"/><path d="M31 17 L20 4 M31 17 L20 30" stroke="#d76b9b" stroke-width="3" stroke-linecap="round"/><path d="M100 17 l-8 -5 M115 17 l-8 -5" stroke="#e8a5c5" stroke-width="1.5"/></svg></div>
+    </div>
+    <p class="instruction" id="arrowHint"></p>
+    <p style="font-size:.88rem;opacity:.7"></p>
+    <p class="gesture-next">Prematho aa Arrow Ni Na Gunde Loki Vadhulu Preyasi ✨</p>
+  </section>
+
+  <section class="card scene" id="scene2">
+    <div style="font-size:2.5rem">🌟 💌 🌟</div>
+    <h2></h2>
+    <p class="message" id="birthdayMessage">Wish You Many More Happy Returns Of The Day! 💖
+
+Minutes May Change to Hours, Days May Change to Months, It went 10 Years With Looking into Your Eyes👀....Still Falling For You!
+
+Enni Years Pattindi | Final Ga 2026 Mana Marriage | But Naku Still Ninnu inka "Nidubrolu" Velle "Krishna" Train lo chusina Na Devatha "Latha" | aa Magic Eyes👀 | Looks, Manam Kalisi Thina Bourbon Biscuit | Steps Dagara kurchoni cheppukuna Prema Patalu | Inka Alane Unnaye Baby | Vatiki Age Ipovadam Ledu 🌸🦋</p>
+    <div class="signature">Naa Prema, Pranam Nide Saki | Savu lo kuda Ni Thodu Unta Nithone Bathukutha♡</div>
+    <p class="gesture-next" id="toCake">Ni Chitti Chitti Fingers Tho Click Cheye Baby 🎂</p>
+  </section>
+
+  <section class="card scene" id="scene3">
+    <div style="font-size:2rem">🏰 ✨ 👑 ✨ 🏰</div>
+    <h2>Latha Yuva Rani Vari Cake 👑</h2>
+    <p class="sub">Korikalu Korukoni Candles Ni Udhu Bngru</p>
+    <div class="cake-wrap" id="cakeWrap">
+      <div class="cake">
+        <div class="tier t1"></div><div class="tier t2"></div><div class="tier t3"></div>
+        <div class="candles" id="candles">
+          <div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div>
+        </div>
+      </div>
+      <div class="cake-sprinkles"></div>
+      <div class="knife hidden" id="knife" role="button" aria-label="Drag knife to cut the cake"><svg viewBox="0 0 140 50" aria-hidden="true"><defs><linearGradient id="blade" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#d9dce7"/><stop offset="1" stop-color="#9298aa"/></linearGradient></defs><path d="M12 25 L105 8 Q124 7 130 15 L52 34 L12 29 Z" fill="url(#blade)" stroke="#8c91a4" stroke-width="1.5"/><path d="M11 20 Q3 17 3 26 Q3 35 14 34 L36 31 L35 23 Z" fill="#d889ae" stroke="#a94c7e" stroke-width="2"/><path d="M13 23 L28 25 M12 29 L28 28" stroke="#fff0f7" stroke-width="2"/></svg></div>
+    </div>
+    <div class="blow-count" id="blowCount">Korikalu Tiruthaye 🌬️</div>
+    <p class="sub" id="blowHint"></p>
+    <p class="gesture-next" id="blowBtn">Korika Korukunnava Candles Mida Click Cheye Leda Udhu 🌬️</p>
+    <p class="instruction hidden" id="knifeHint">Kathi Tisko Saki Cake Cut Cheye | Nenu Ni Hand Pattukuna🫳🏻</p>
+  </section>
+
+  <section class="card scene" id="scene4">
+    <div style="font-size:2rem">🎁 💝 🎀</div>
+    <h2>A little love, just for you</h2>
+    <p class="sub">Ni Hand Tho Cut Chesav ani Happiness tho Na Heart Dance Chesthundi</p>
+    <div class="love-balloon heart-mosaic" id="loveGift" tabindex="0" aria-label="Open the heart-shaped gift"></div>
+    <p class="instruction">Kadile Na Hrudayani Thaku Sundari | Mana Prema Katha Chepthadi ♡</p>
+    <div class="final-note hidden" id="finalNote">
+      <div style="font-size:2.2rem">💗✨💗</div>
+      <h2>Chinna Prema Katha | Mana Prema Katha…</h2>
+      Kadhile Kalam Anukoni Phone Call Kalipindi Manalni Oka Frnds Laa. Pranam Leni Engine kalam tho Parigeduthu "Nekonda Station" lo Na Manasuni Cheye Pattukoni Lagindi "Krishna Train" loki, Oka Andhani Chupinchindi...
+
+      Andhagathe tho Aadina aatalu anthuleni gyapakalu chepakundane chepina premalu, Nidurbolu Bridge Mida Prema Telipina moment apatike 4Yrs Wastage vachina duram corona Penchindi prema...duram ga unna dagariga bathikam....
+
+      Life lo Chala Kastalu vachaye ebandhulu godavalu and naku budhi kuda vachindi Na Preyasi viluva telisindi | Na preyasi poratam Devudi daya valla Ma Parents Oppukunnaru Maa Prema Pelli ga Marabothundi.
+      
+      Natho Jeevitham Panchukune Na Pranam|Preyasi|Wife My Darling Latha Love U So Much🌷Ninnu Na Pranam la chuskunta Mana Papa ina sare Ni Tharuvathe🤗
+
+      <div class="signature">Happy Birthday — Nv Elanti Bday's Marenno Jarupukovali Ani Manaspoorthi ga Devisthuna. 💞</div>
+      <p class="gesture-next" id="againHint">Puttin Roju Je Je Lu Chitti Papai.. 💗</p>
+    </div>
+  </section>
+  <footer>Made With Love & Affection From Chinna Muthi. ♡</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const scenes=[...document.querySelectorAll('.scene')];
+function showScene(n){scenes.forEach((s,i)=>s.classList.toggle('active',i===n-1));window.scrollTo({top:0,behavior:'smooth'});}
+function burst(x=innerWidth/2,y=innerHeight/2,count=45){const symbols=['✨','💖','💕','🌸','⭐','🦋','💗','🎀'];for(let i=0;i<count;i++){const e=document.createElement('span');e.className='tiny-love';e.textContent=symbols[Math.random()*symbols.length|0];e.style.left=x+'px';e.style.top=y+'px';e.style.setProperty('--dx',((Math.random()-.5)*innerWidth*.8)+'px');e.style.animationDuration=(2+Math.random()*2)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4200)}}
+function confettiBurst(){const c=$('confetti');for(let i=0;i<90;i++){let e=document.createElement('i');e.textContent=['✦','♡','✧','•'][i%4];e.style.cssText=`position:absolute;left:${Math.random()*100}%;top:-25px;color:${['#f16ca9','#b9a4ff','#f8c85e','#ff91b8'][i%4]};font-size:${12+Math.random()*17}px;animation:fall ${2+Math.random()*3}s linear forwards;`;c.appendChild(e);setTimeout(()=>e.remove(),5200)}}
+const style=document.createElement('style');style.textContent='@keyframes fall{to{transform:translateY(110vh) rotate(600deg);opacity:0}}';document.head.appendChild(style);
+const sky=$('sky');for(let i=0;i<28;i++){let e=document.createElement('span');e.className='floaty';e.textContent=['♡','✧','🌸','✨','🦋'][i%5];e.style.left=Math.random()*100+'%';e.style.fontSize=(12+Math.random()*24)+'px';e.style.animationDuration=(9+Math.random()*15)+'s';e.style.animationDelay=(-Math.random()*20)+'s';sky.appendChild(e)}
+function revealMessage(){showScene(2);burst(innerWidth*.5,innerHeight*.28,65);confettiBurst()}
+$('toCake').addEventListener('click',()=>{showScene(3);burst(innerWidth/2,innerHeight*.45,35)});
+const stage=$('heartStage'),arrow=$('arrow'),heart=$('targetHeart');let dragging=false,startX=0,startY=0,origX=0,origY=0,shot=false;
+function point(ev){const r=stage.getBoundingClientRect();return{x:ev.clientX-r.left,y:ev.clientY-r.top}}
+arrow.addEventListener('pointerdown',e=>{if(shot)return;dragging=true;arrow.setPointerCapture(e.pointerId);let p=point(e);startX=p.x;startY=p.y;const r=arrow.getBoundingClientRect(),sr=stage.getBoundingClientRect();origX=r.left-sr.left;origY=r.top-sr.top;arrow.style.transition='none';});
+arrow.addEventListener('pointermove',e=>{if(!dragging)return;let p=point(e),dx=p.x-startX,dy=p.y-startY;arrow.style.left=Math.max(0,Math.min(stage.clientWidth-55,origX+dx))+'px';arrow.style.top=Math.max(0,Math.min(stage.clientHeight-40,origY+dy))+'px';arrow.style.transform=`rotate(${-15+dx*.15}deg) scale(${1+Math.min(.25,Math.abs(dx)/400)})`;});
+function shoot(){if(!dragging)return;dragging=false;const r=arrow.getBoundingClientRect(),hr=heart.getBoundingClientRect();const dx=hr.left-r.left,dy=hr.top-r.top;arrow.style.transition='all .55s cubic-bezier(.2,.8,.2,1)';arrow.style.left=(stage.clientWidth*.49)+'px';arrow.style.top=(stage.clientHeight*.35)+'px';arrow.style.transform='rotate(-8deg) scale(.65)';heart.animate([{filter:'drop-shadow(0 0 0 #ff8abd)',transform:'translate(-50%,-50%) scale(1)'},{filter:'drop-shadow(0 0 28px #ff4f9d)',transform:'translate(-50%,-50%) scale(1.32)'},{filter:'drop-shadow(0 10px 12px #fa78b177)',transform:'translate(-50%,-50%) scale(1)'}],{duration:800});burst(hr.left+hr.width/2,hr.top+hr.height/2,50);shot=true;$('arrowHint').textContent='A little love has found its home! 💘';setTimeout(revealMessage,950)}
+arrow.addEventListener('pointerup',shoot);arrow.addEventListener('pointercancel',shoot);
+let blows=0;
+function blowCandles(){if(blows>=3)return;blows++;const candles=[...document.querySelectorAll('.candle')];if(blows===1){candles.forEach(c=>{c.classList.add('off');let s=document.createElement('span');s.className='smoke';s.textContent='〰';c.appendChild(s);setTimeout(()=>s.remove(),1100)});$('blowCount').textContent='Modati Korika Thadasthu.. 🌟';$('blowHint').textContent='';burst(innerWidth/2,innerHeight*.45,25);setTimeout(()=>{candles.forEach(c=>c.classList.remove('off'));$('blowCount').textContent='Iyyo Okkosare Na Mallosari Udhu Bngru Konda';$('blowHint').textContent='Inka Korikalu Koruko Bujji Kanna';$('blowBtn').textContent='Korika Korukunnava Candles Mida Click Cheye Leda Udhu 🌬️'},1500)}
+else if(blows===2){candles.forEach(c=>c.classList.add('off'));$('blowCount').textContent='Rendo Korika Thadasthu..🪄';$('blowHint').textContent='Ede Last Na Chitti Kanna | Bngru Kanna Kadha';burst(innerWidth/2,innerHeight*.45,35);setTimeout(()=>{candles.forEach(c=>c.classList.remove('off'));$('blowCount').textContent='Apude AlasiPoyava Inka Koruko Bujji Kanna ✨';$('blowBtn').textContent='Korika Korukunnava Candles Mida Click Cheye Leda Udhu 🌬️'},1000)}
+else{candles.forEach(c=>{c.classList.add('off');c.style.opacity='0';});$('blowCount').textContent='Anni Korikalu Devudu Thadasthu Anesadu 💫';$('blowHint').textContent='Ega Cake Cut Chedam!';$('blowBtn').classList.add('hidden');$('knife').classList.remove('hidden');$('knifeHint').classList.remove('hidden');burst(innerWidth/2,innerHeight*.45,55);confettiBurst()}}
+$('blowBtn').addEventListener('click',blowCandles);$('candles').addEventListener('click',blowCandles);
+function cutCake(start,end){if($('cakeWrap').classList.contains('cut'))return;const wrap=$('cakeWrap'),r=wrap.getBoundingClientRect();wrap.classList.add('cut');
+  // Draw the cut exactly where the knife travelled, then lift the separated wedge away.
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('class','cake-cut-mark');svg.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);svg.setAttribute('preserveAspectRatio','none');
+  const path=document.createElementNS('http://www.w3.org/2000/svg','path');const sx=Math.max(16,Math.min(r.width-16,start.x-r.left)),sy=Math.max(28,Math.min(r.height-24,start.y-r.top)),ex=Math.max(16,Math.min(r.width-16,end.x-r.left)),ey=Math.max(28,Math.min(r.height-18,end.y-r.top));path.setAttribute('d',`M ${sx} ${sy} Q ${(sx+ex)/2+8} ${(sy+ey)/2} ${ex} ${ey}`);svg.appendChild(path);wrap.appendChild(svg);
+  const slice=document.createElement('div');slice.className='cake-slice';slice.style.left=Math.max(36,Math.min(r.width-92,ex-35))+'px';slice.style.top=Math.max(78,Math.min(r.height-135,ey-65))+'px';slice.innerHTML='<div class="slice-layer slice-bottom"></div><div class="slice-layer slice-middle"></div><div class="slice-layer slice-top"></div><span>✦</span>';wrap.appendChild(slice);
+  $('knife').classList.add('hidden');$('knifeHint').classList.add('hidden');burst(end.x,end.y,60);confettiBurst();setTimeout(()=>{slice.classList.add('slice-out');setTimeout(()=>{showScene(4);makeHeartStream()},850)},500)}
+const knife=$('knife');let knifeDrag=false,kx=0,ky=0,kleft=0,ktop=0,knifeMoved=false,knifeStart={x:0,y:0},knifeEnd={x:0,y:0};
+knife.addEventListener('pointerdown',e=>{if($('cakeWrap').classList.contains('cut'))return;knifeDrag=true;knifeMoved=false;knife.setPointerCapture(e.pointerId);kx=e.clientX;ky=e.clientY;knifeStart={x:e.clientX,y:e.clientY};knifeEnd={x:e.clientX,y:e.clientY};kleft=knife.offsetLeft;ktop=knife.offsetTop;knife.style.transition='none'});
+knife.addEventListener('pointermove',e=>{if(!knifeDrag)return;const dx=e.clientX-kx,dy=e.clientY-ky;if(Math.abs(dx)+Math.abs(dy)>8)knifeMoved=true;knifeEnd={x:e.clientX,y:e.clientY};knife.style.left=(kleft+dx)+'px';knife.style.top=(ktop+dy)+'px';knife.style.right='auto';knife.style.transform=`rotate(${-28+dx*.08}deg)`;});
+knife.addEventListener('pointerup',e=>{if(!knifeDrag)return;knifeDrag=false;const cake=$('cakeWrap').getBoundingClientRect();const midX=(knifeStart.x+knifeEnd.x)/2,midY=(knifeStart.y+knifeEnd.y)/2;const crossed=midX>=cake.left&&midX<=cake.right&&midY>=cake.top&&midY<=cake.bottom;const endInside=knifeEnd.x>=cake.left&&knifeEnd.x<=cake.right&&knifeEnd.y>=cake.top&&knifeEnd.y<=cake.bottom;if((crossed||endInside)&&knifeMoved)cutCake(knifeStart,knifeEnd);else{knife.style.transition='left .35s,top .35s,transform .35s';knife.style.left='auto';knife.style.right='-8px';knife.style.top='30px';knife.style.transform='rotate(-28deg)'}});
+function makeHeartStream(){let n=0;const timer=setInterval(()=>{const r=$('loveGift').getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,8);n++;if(n>5)clearInterval(timer)},450)}
+function buildMosaicHeart(){const host=$('loveGift');host.innerHTML='';const w=host.clientWidth||240,h=host.clientHeight||220;for(let y=0;y<19;y++){for(let x=0;x<21;x++){const nx=(x-10)/9,ny=(y-8)/8;const inside=Math.pow(nx*nx+ny*ny-1,3)-nx*nx*Math.pow(ny,3)<=0;if(inside){const el=document.createElement('span');el.className='mosaic-heart';el.textContent='♥';el.style.left=(x/20*100)+'%';el.style.top=(y/18*100)+'%';el.style.fontSize=(7+Math.random()*4)+'px';el.style.setProperty('--heart-color',`hsl(${Math.random()*360},82%,${55+Math.random()*15}%)`);el.style.animationDelay=(Math.random()*1.5)+'s';host.appendChild(el)}}}}
+buildMosaicHeart();window.addEventListener('resize',buildMosaicHeart);setInterval(()=>{document.querySelectorAll('.mosaic-heart').forEach(el=>el.style.setProperty('--heart-color',`hsl(${Math.random()*360},85%,${55+Math.random()*13}%)`))},950);
+let hue=0;setInterval(()=>{hue=(hue+35)%360;$('loveGift').style.filter=`hue-rotate(${hue}deg) drop-shadow(0 8px 20px #e77bb2)`},1100);
+function openGift(){if(!$('finalNote').classList.contains('hidden'))return;$('finalNote').classList.remove('hidden');burst(innerWidth/2,innerHeight*.42,100);confettiBurst();$('finalNote').scrollIntoView({behavior:'smooth',block:'center'})}
+$('loveGift').onclick=openGift;$('loveGift').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift()}};
+$('againHint').addEventListener('dblclick',()=>location.reload());
+
+</script>
+</body>
+</html>
